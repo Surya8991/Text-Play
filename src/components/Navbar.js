@@ -2,7 +2,7 @@ import React from 'react' //We are importing React
 import PropTypes from 'prop-types';//We are importing the PropTypes library to use the PropTypes.element type.
 export default function Navbar(props) {//props is an object that contains the properties that are passed to the component.
   return (
-    <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode}  bg-${props.mode}`}>
   <div className="container-fluid">
     <h1><a className="navbar-brand" href="/">{props.title}</a></h1>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +23,10 @@ export default function Navbar(props) {//props is an object that contains the pr
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-light" type="submit">Search</button>
       </form> */}
+      <div className={`form-check form-switch text-${props.mode==="dark"?"light":"dark"}`}>
+  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+</div>
     </div>
   </div>
 </nav>);
