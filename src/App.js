@@ -1,12 +1,14 @@
+//Importing the React Components
 import "./App.css";
 // import About from "./components/About";
 import Navbar from "./components/Navbar"; //importing the Navbar component
 import TextForm from "./components/TextForm";
 import React, { useState } from 'react';
 
+
 function App() {
-  //App is a component.
   const [mode,setMode] = useState("light");//we are defining the mode of the navbar.
+  //Toggling the mode of the navbar like light and dark mode.
   const toggleSwitch=()=>
   {
     if (mode==="light")
