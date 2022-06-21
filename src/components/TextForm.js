@@ -3,14 +3,17 @@ export default function TextForm(props) {
   //To convert the text to uppercase.
   const handleUpperCase = () => {
     setText(text.toUpperCase());
+    props.showAlert("Converted to UpperCase","sucess");
   };
   //To convert the text to lowercase.
   const handleLowerCase = () => {
     setText(text.toLowerCase());
+    props.showAlert("Converted to LowerCase","sucess");
   };
   //To clear the text.
   const handleclearText = () => {
     setText("");
+    props.showAlert("Cleared Text","sucess");
   };
   const handleChange = (e) => {
     setText(e.target.value);
@@ -18,10 +21,10 @@ export default function TextForm(props) {
   //To extract the words from the text.
   const handletextExtract = () => {
     const regex = /[0-9/A-Z/a-z/ /]/g;
-
     const letters = text.match(regex);
     const res1 = letters.join("");
     setText(res1);
+    props.showAlert("Extracted the words from the text","sucess");
   };
   //To extract the number from the text.
   const handleNumExtract = () => {
@@ -29,6 +32,7 @@ export default function TextForm(props) {
     const digits = text.match(regex);
     const res = digits.join("");
     setText(res);
+    props.showAlert("Extracted the Numbers from the text","sucess");
   };
   //To capitalize the first letter of each word.
   const capitalization = () => {
@@ -39,31 +43,36 @@ export default function TextForm(props) {
       updatedText = updatedText + (firstChar + word.slice(1)) + " ";
     });
     setText(updatedText);
+    props.showAlert("Capitalized the first letter of each word","sucess");
   };
-  //To convert the text to piglatin.
+  //To convert the text to Base64.
   function base64Encode() {
     setText(btoa(text));
+    props.showAlert("converted the text to Base64","sucess");
   }
 
   // to decode base64 to text
 
   function base64Decode() {
     setText(atob(text));
+    props.showAlert("converted the Base64 to Text","sucess");
   }
   //To reverse the text.
   function handleRevClick() {
     setText(text.split(" ").reverse().join(" "));
+    props.showAlert("Reversed Text","sucess");
   }
   //To remove extra spaces from the text.
   const handleExtraSpaces = () => {
     setText(text.replace(/\s+/g, " ").trim());
+    props.showAlert("Removed Extra Spaces","sucess");
   };
   //To copy to clipboard.
   const handleCopy = () => {
     var text = document.getElementById("myForm");
     text.select();
     navigator.clipboard.writeText(text.value);
-    alert("Copied to clipboard");
+    props.showAlert("Copied to Clipboard","sucess");
   };
   //To add speak function to the text.
   // const speak = () => {
@@ -74,12 +83,18 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
   return (
     <>
-      <div className={`container text-${props.mode==="dark"?"light":"dark"}`}>
+      <div
+        className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-3">
+          {/* Text area where you enter the text */}
           <textarea
             className="form-control"
-            style={{backgroundColor:props.mode==="dark"?"#343a40":"white",color:props.mode==="dark"?"white":"#343a40"}}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#343a40" : "white",
+              color: props.mode === "dark" ? "white" : "#343a40",
+            }}
             value={text}
             onChange={handleChange}
             id="myForm"
@@ -121,9 +136,12 @@ export default function TextForm(props) {
         </button>
         {/* <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button> */}
       </div>
-      <div className={`container text-${props.mode==="dark"?"light":"dark"}`}>
+      <div
+        className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
+      >
         <h1>Text Summary</h1>
         <strong>
+          {/* To display the word and characters count */}
           <p>
             {""}
             You have {text.trim().split(" ").length} Words and {text.length}{" "}
@@ -132,7 +150,8 @@ export default function TextForm(props) {
           </p>
         </strong>
         <h2>Text Preview</h2>
-        <p>{text.length>0?text:"Enter your Text to preview it here"}</p>
+        <p>{text.length > 0 ? text : "Enter your Text to preview it here"}</p>
+        {/* //To display the text preview.*/}
       </div>
     </>
   );
