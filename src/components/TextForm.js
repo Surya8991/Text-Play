@@ -30,7 +30,7 @@ export default function TextForm(props) {
   const handleNumExtract = () => {
     const regex = /[0-9]/g;
     const digits = text.match(regex);
-    const res = digits.join("");
+    const res = digits.join(" ");
     setText(res);
     props.showAlert("Extracted the Numbers from the text","sucess");
   };
@@ -98,7 +98,7 @@ export default function TextForm(props) {
             value={text}
             onChange={handleChange}
             id="myForm"
-            rows="8"
+            rows="10"
           ></textarea>
         </div>
         <button className="btn btn-dark mx-2 my-2" onClick={handleUpperCase}>
@@ -113,6 +113,9 @@ export default function TextForm(props) {
         <button className="btn btn-dark mx-2 my-2" onClick={handleCopy}>
           Copy to Clipboard
         </button>
+        <button className="btn btn-dark mx-2 my-2" onClick={capitalization}>
+          Capitalize each word
+        </button>
         <button className="btn btn-dark mx-2 my-2" onClick={handletextExtract}>
           Extract Text
         </button>
@@ -121,9 +124,6 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-dark mx-2 my-2" onClick={handleExtraSpaces}>
           Remove Extra Spaces
-        </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={capitalization}>
-          Capitalize each word
         </button>
         <button className="btn btn-dark mx-2 my-2" onClick={base64Encode}>
           Text to Base64
@@ -144,9 +144,8 @@ export default function TextForm(props) {
           {/* To display the word and characters count */}
           <p>
             {""}
-            You have {text.trim().split(" ").length} Words and {text.length}{" "}
-            Characters. It takes {0.008 * text.split(" ").length} Minutes to
-            read. You have {text.split(".").length} Sentence.
+            Your text has {text.replace(/[ ]+/,'').trim()===''?0:text.replace(/[ ]+/g,' ').trim().split(' ').length} words and {text.length} characters. It takes {Math.floor(0.008 * text.split(" ").length)} Minutes to
+            read.
           </p>
         </strong>
         <h2>Text Preview</h2>
