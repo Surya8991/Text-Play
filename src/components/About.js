@@ -10,22 +10,6 @@ export default function About(props) {
       <h1>{props.heading}</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
-              }}
-            >
-              Bio
-            </button>
-          </h2>
           <div
             id="collapseOne"
             className="accordion-collapse collapse show"
@@ -37,14 +21,13 @@ export default function About(props) {
             }}
           >
             <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <h4><strong>Text Utiliz+</strong> is a free online text formatter,which performs operations such as </h4>
+              <h6>
+              <ol>
+              <li>Text to UpperCase</li>
+              <li>Text to LowerCase</li>
+              <li>Clears the text</li><li>copies it to the clipboard</li><li>Capitalizes each word</li><li>extracts only text</li><li>extracts only numbers</li><li>eliminates extra spaces</li><li>decodes Base64</li><li>converts Base64 to text</li><li> reverses the text</li><li>and much more.<strong> Enjoy all for free!</strong></li></ol></h6>
+              {/* <h5>A free online text formatter, Text Utiliz+ helps you format text online. It performs operations such as text to UpperCase, text to LowerCase, clears the text, copies it to the clipboard, capitalizes each word, extracts only text, extracts only numbers, eliminates extra spaces, decodes Base64, converts Base64 to text, reverses the text and many other operations.<strong> Enjoy all for free!</strong></h5> */}
             </div>
           </div>
         </div>
