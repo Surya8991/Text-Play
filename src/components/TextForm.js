@@ -86,7 +86,8 @@ export default function TextForm(props) {
       <div
         className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
       >
-        <h1>{props.heading}</h1>
+        <h2 className="mb-4">{props.heading}</h2>
+        <h5 className="mb-4">{props.des}</h5>
         <div className="mb-3">
           {/* Text area where you enter the text */}
           <textarea
@@ -98,40 +99,40 @@ export default function TextForm(props) {
             value={text}
             onChange={handleChange}
             id="myForm"
-            rows="10"
+            rows="6"
           ></textarea>
         </div>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleUpperCase}>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleUpperCase} disabled={text.length===0} >
           Converting to Upper Case
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleLowerCase}>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleLowerCase} disabled={text.length===0}>
           Converting to Lower Case
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleclearText}>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleclearText} disabled={text.length===0}>
           Clear Text
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleCopy}>
-          Copy to Clipboard
+        <button className="btn btn-dark mx-2 my-2" onClick={handleCopy} disabled={text.length===0}>
+          Copy Text
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={capitalization}>
+        <button className="btn btn-dark mx-2 my-2" onClick={capitalization} disabled={text.length===0}>
           Capitalize each word
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handletextExtract}>
+        <button className="btn btn-dark mx-2 my-2" onClick={handletextExtract} disabled={text.length===0}>
           Extract Text
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleNumExtract}>
-          Extract Only Numbers
+        <button className="btn btn-dark mx-2 my-2" onClick={handleNumExtract} disabled={text.length===0}>
+          Extract Numbers
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleExtraSpaces}>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleExtraSpaces} disabled={text.length===0}>
           Remove Extra Spaces
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={base64Encode}>
+        <button className="btn btn-dark mx-2 my-2" onClick={base64Encode} disabled={text.length===0}>
           Text to Base64
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={base64Decode}>
+        <button className="btn btn-dark mx-2 my-2" onClick={base64Decode} disabled={text.length===0}>
           Base64 to Text
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleRevClick}>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleRevClick} disabled={text.length===0}>
           Reverse Text
         </button>
         {/* <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button> */}
@@ -144,12 +145,12 @@ export default function TextForm(props) {
           {/* To display the word and characters count */}
           <p>
             {""}
-            Your text has {text.replace(/[ ]+/,'').trim()===''?0:text.replace(/[ ]+/g,' ').trim().split(' ').length} words and {text.length} characters. It takes {Math.floor(0.008 * text.split(" ").length)} Minutes to
+            Your text has {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters. It takes {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to
             read.
           </p>
         </strong>
         <h2>Text Preview</h2>
-        <p>{text.length > 0 ? text : "Enter your Text to preview it here"}</p>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
         {/* //To display the text preview.*/}
       </div>
     </>

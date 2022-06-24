@@ -34,8 +34,8 @@ function App() {
     <>
       <Router>
         <Navbar
-          title="Text Utilz+"
-          aboutText="About Text Utilz+"
+          title="Text Utiliz+"
+          aboutText="About Text Utiliz+"
           mode={mode}
           toggleMode={toggleSwitch}
         />
@@ -50,9 +50,10 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Enter Your Text Below To Analyse"
+                  heading="Try Text Utiliz+ - Word counter , Character counter , UpperCase to LowerCase , Remove Spaces"
                   mode={mode}
                   showAlert={showAlert}
+                  des="Enter your Text Below to Analyse"
                 />
               }
             ></Route>
