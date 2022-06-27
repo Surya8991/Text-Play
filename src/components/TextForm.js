@@ -20,25 +20,37 @@ export default function TextForm(props) {
   };
   //To extract the words from the text.
   const handletextExtract = () => {
-    const regex =( /[0-9/A-Z/a-z/ /]/g);
-    const letters = text.match(regex);
+    const letters = text.match(/[/A-Z/a-z/ /]/g);
+    if(letters!==null){
     const res1 = letters.join("");
     setText(res1);
     props.showAlert("Extracted the words from the text", "sucess");
+  }else{
+    props.showAlert("No words found in the text", "error");
+  }
+};
+  //To extract the mail id from the text.
+  const handlemailExtract = () => {
+    let emailIds = text.match(
+      /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi
+    );
+    if (emailIds != null) {
+      setText(emailIds);
+      props.showAlert("Extracted Email Ids from the text", "sucess");
+    } else {
+      props.showAlert("No email id found", "error");
+    }
   };
-  // //To extract the mail id from the text.
-  // const handlemailExtract = () => {
-  //   let emailIds=text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi).join("/n");
-  //   setText(emailIds);
-  //   props.showAlert("Extracted Email Ids from the text", "sucess");
-  // };
   //To extract the number from the text.
   const handleNumExtract = () => {
-    const regex = (/[0-9]/g);
-    const digits = text.match(regex);
-    const res = digits.join(" ");
-    setText(res);
-    props.showAlert("Extracted the Numbers from the text", "sucess");
+    const digits = text.match(/[0-9]/g);
+    if (digits != null) {
+      const res = digits.join(" ");
+      setText(res);
+      props.showAlert("Extracted the Numbers from the text", "sucess");
+    } else {
+      props.showAlert("No number found", "error");
+    }
   };
   //To capitalize the first letter of each word.
   const capitalization = () => {
@@ -55,15 +67,15 @@ export default function TextForm(props) {
   function handleRevClick() {
     setText(
       text
-        .split(" ")
+        .split("")
         .reverse()
-        .join(" ")
+        .join("")
     );
     props.showAlert("Reversed Text", "sucess");
   }
   //To remove extra spaces from the text.
   const handleExtraSpaces = () => {
-    setText(text.replace(/\s+/g, " ").trim());
+    setText(text.replace(/\s+/g," ").trim());
     props.showAlert("Removed Extra Spaces", "sucess");
   };
   //To copy to clipboard.
@@ -77,7 +89,7 @@ export default function TextForm(props) {
   const handleCut = () => {
     var text = document.getElementById("myForm");
     setText(text.value.slice(0, 180));
-    props.showAlert("Cut the text for Twitter", "sucess");
+    props.showAlert("Text is now 180 Character", "sucess");
   };
   const [text, setText] = useState("");
   return (
@@ -144,12 +156,13 @@ export default function TextForm(props) {
         >
           Capitalize each word
         </button>
-        {/* <button
+        <button
           className="btn btn-dark mx-2 my-2"
           onClick={handlemailExtract}
+          disabled={text.length === 0}
         >
           Extract Emails
-        </button> */}
+        </button>
         <button
           className="btn btn-dark mx-2 my-2"
           onClick={handletextExtract}
