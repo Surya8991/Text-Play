@@ -74,6 +74,13 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
     props.showAlert("Copied to Clipboard","sucess");
   };
+  //To cut the text for Twitter.
+  const handleCut = () => {
+    var text = document.getElementById("myForm");
+    setText(text.value.slice(0,180));
+    props.showAlert("Cut the text for Twitter","sucess");
+  }
+
   //To add speak function to the text.
   // const speak = () => {
   //   let msg = new SpeechSynthesisUtterance();
@@ -113,6 +120,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-dark mx-2 my-2" onClick={handleCopy} disabled={text.length===0}>
           Copy Text
+        </button>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleCut} disabled={text.length===0}>
+         Text For twitter
         </button>
         <button className="btn btn-dark mx-2 my-2" onClick={capitalization} disabled={text.length===0}>
           Capitalize each word
