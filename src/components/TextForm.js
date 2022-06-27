@@ -26,6 +26,14 @@ export default function TextForm(props) {
     setText(res1);
     props.showAlert("Extracted the words from the text","sucess");
   };
+  //To extract the mail id from the text.
+  const handlemailExtract = () => {
+    const regex = (/[a-zA-Z0-9-_.]+@[a-zA-Z0-9-_.]+/gi);
+    const letters = text.match(regex);
+    const res1 = letters.join(" ");
+    setText(res1);
+    props.showAlert("Extracted Email Ids from the text","sucess");
+  };
   //To extract the number from the text.
   const handleNumExtract = () => {
     const regex = /[0-9]/g;
@@ -50,7 +58,6 @@ export default function TextForm(props) {
     setText(btoa(text));
     props.showAlert("converted the text to Base64","sucess");
   }
-
   // to decode base64 to text
 
   function base64Decode() {
@@ -80,13 +87,6 @@ export default function TextForm(props) {
     setText(text.value.slice(0,180));
     props.showAlert("Cut the text for Twitter","sucess");
   }
-
-  //To add speak function to the text.
-  // const speak = () => {
-  //   let msg = new SpeechSynthesisUtterance();
-  //   msg.text = text;
-  //   window.speechSynthesis.speak(msg);
-  // }
   const [text, setText] = useState("");
   return (
     <>
@@ -100,13 +100,13 @@ export default function TextForm(props) {
           <textarea
             className="form-control"
             style={{
-              backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-              color: props.mode === "dark" ? "white" : "#343a40",
+              backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+              color: props.mode === "dark" ? "white" : "#06283D",
             }}
             value={text}
             onChange={handleChange}
             id="myForm"
-            rows="6"
+            rows="6" spellCheck="false"
           ></textarea>
         </div>
         <button className="btn btn-dark mx-2 my-2" onClick={handleUpperCase} disabled={text.length===0} >
@@ -127,6 +127,9 @@ export default function TextForm(props) {
         <button className="btn btn-dark mx-2 my-2" onClick={capitalization} disabled={text.length===0}>
           Capitalize each word
         </button>
+        <button className="btn btn-dark mx-2 my-2" onClick={handlemailExtract} disabled={text.length===0}>
+         Extract Emails
+        </button>
         <button className="btn btn-dark mx-2 my-2" onClick={handletextExtract} disabled={text.length===0}>
           Extract Text
         </button>
@@ -136,32 +139,30 @@ export default function TextForm(props) {
         <button className="btn btn-dark mx-2 my-2" onClick={handleExtraSpaces} disabled={text.length===0}>
           Remove Extra Spaces
         </button>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleRevClick} disabled={text.length===0}>
+          Reverse Text
+        </button>
         <button className="btn btn-dark mx-2 my-2" onClick={base64Encode} disabled={text.length===0}>
           Text to Base64
         </button>
         <button className="btn btn-dark mx-2 my-2" onClick={base64Decode} disabled={text.length===0}>
           Base64 to Text
         </button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleRevClick} disabled={text.length===0}>
-          Reverse Text
-        </button>
         {/* <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button> */}
       </div>
       <div
         className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
       >
-        <h1>Text Summary</h1>
-        <strong>
+        <h2 className="my-3">Text Summary</h2>
           {/* To display the word and characters count */}
           <p>
             {""}
-            Your text has {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters. It takes {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to
+            Your text has <strong>{text.split(" ").filter((element)=>{return element.length!==0}).length}</strong> words And <strong>{text.length}</strong> characters. It takes <strong>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length}</strong> Minutes to
             read the text.
           </p>
-        </strong>
-        <h2>Text Preview</h2>
-        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
         {/* //To display the text preview.*/}
+        <h2 className="my-3">Text Preview</h2>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
     </>
   );

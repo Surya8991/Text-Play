@@ -22,7 +22,7 @@ function App() {
   const toggleSwitch = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "#343a40";
+      document.body.style.backgroundColor = "#06283D";
       showAlert("Enabled Dark Mode", "success");
     } else {
       setMode("light");
@@ -34,8 +34,8 @@ function App() {
     <>
       <Router>
         <Navbar
-          title="Text Utiliz+"
-          aboutText="About Text Utiliz+"
+          title="Text-Utility-Pro"
+          aboutText="About"
           mode={mode}
           toggleMode={toggleSwitch}
         />
@@ -44,13 +44,13 @@ function App() {
           <Routes>
             <Route
               path="/about"
-              element={<About mode={mode} showAlert={showAlert} heading="About Text Utiliz+"/>}
+              element={<About mode={mode} showAlert={showAlert} heading="About Text-Utility-Pro"/>}
             ></Route>
             <Route
               path="/"
               element={
                 <TextForm
-                  heading="Try Text Utiliz+ - Word counter , Character counter , UpperCase to LowerCase , Remove Spaces"
+                  heading="Try Text-Utility-Pro : Word counter , Character counter , UpperCase to LowerCase , Remove Spaces, Extract Email Id"
                   mode={mode}
                   showAlert={showAlert}
                   des="Enter your Text Below to Analyse"

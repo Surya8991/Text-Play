@@ -19,8 +19,8 @@ export default function About(props) {
               aria-expanded="true"
               aria-controls="collapseOne"
               style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
               <h3>Analyse your Text</h3>
@@ -35,13 +35,13 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
-              <strong>Text Utiliz+</strong> allows you to use text quickly and
+              <strong>Text-Utility-Pro</strong> allows you to use text quickly and
               efficiently. You can use it to convert text from UpperCase to
-              LowerCase, to clear the text, copy it to the clipboard, capitalize
+              LowerCase, to clear the text,Cut Text for twitter,Extract Emails ,copy it to the clipboard, capitalize
               each word, extract only text, extract only numbers, eliminate
               extra spaces, decode Base64, convert Base64 to text, reverse the
               text, and many more.
@@ -58,8 +58,8 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseTwo"
               style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
               <h3>Free to use</h3>
@@ -74,12 +74,12 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
-              <strong>Text Utiliz+</strong> is a free online text formatter
-              tool. Using Text Utiliz+, you can learn how many words,
+              <strong>Text-Utility-Pro</strong> is a free online text formatter
+              tool. Using Text-Utility-Pro, you can learn how many words,
               characters, and how long it takes to read the text. Thus Text
               Utiliz+ is suitable for writing text with a word/character limit.
             </div>
@@ -95,8 +95,8 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseThree"
               style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
             <h3>Browser Compatible</h3>
@@ -111,8 +111,8 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#343a40" : "white",
-                color: props.mode === "dark" ? "white" : "#343a40",
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
               Using this software, you can analyze text in Web browsers such as
