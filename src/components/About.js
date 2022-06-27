@@ -127,9 +127,3 @@ export default function About(props) {
     </div>
   );
 }
-{/* <strong>Text-Utility-Pro</strong> allows you to use text quickly and
-            efficiently. You can use it to convert text from UpperCase to
-            LowerCase, to clear the text,Cut Text for twitter,Extract Emails
-            ,copy it to the clipboard, capitalize each word, extract only text,
-            extract only numbers, eliminate extra spaces, decode Base64, convert
-            Base64 to text, reverse the text, and many more. */}
