@@ -156,7 +156,7 @@ export default function TextForm(props) {
           <p>
             {""}
             Your text has {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters. It takes {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to
-            read.
+            read the text.
           </p>
         </strong>
         <h2>Text Preview</h2>
