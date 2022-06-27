@@ -20,23 +20,21 @@ export default function TextForm(props) {
   };
   //To extract the words from the text.
   const handletextExtract = () => {
-    const regex = /[0-9/A-Z/a-z/ /]/g;
+    const regex =( /[0-9/A-Z/a-z/ /]/g);
     const letters = text.match(regex);
     const res1 = letters.join("");
     setText(res1);
     props.showAlert("Extracted the words from the text", "sucess");
   };
-  //To extract the mail id from the text.
-  const handlemailExtract = () => {
-    const regex = /[a-zA-Z0-9-_.]+@[a-zA-Z0-9-_.]+/gi;
-    const letters = text.match(regex);
-    const res1 = letters.join(" ");
-    setText(res1);
-    props.showAlert("Extracted Email Ids from the text", "sucess");
-  };
+  // //To extract the mail id from the text.
+  // const handlemailExtract = () => {
+  //   let emailIds=text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi).join("/n");
+  //   setText(emailIds);
+  //   props.showAlert("Extracted Email Ids from the text", "sucess");
+  // };
   //To extract the number from the text.
   const handleNumExtract = () => {
-    const regex = /[0-9]/g;
+    const regex = (/[0-9]/g);
     const digits = text.match(regex);
     const res = digits.join(" ");
     setText(res);
@@ -53,17 +51,6 @@ export default function TextForm(props) {
     setText(updatedText);
     props.showAlert("Capitalized the first letter of each word", "sucess");
   };
-  //To convert the text to Base64.
-  function base64Encode() {
-    setText(btoa(text));
-    props.showAlert("converted the text to Base64", "sucess");
-  }
-  // to decode base64 to text
-
-  function base64Decode() {
-    setText(atob(text));
-    props.showAlert("converted the Base64 to Text", "sucess");
-  }
   //To reverse the text.
   function handleRevClick() {
     setText(
@@ -157,13 +144,12 @@ export default function TextForm(props) {
         >
           Capitalize each word
         </button>
-        <button
+        {/* <button
           className="btn btn-dark mx-2 my-2"
           onClick={handlemailExtract}
-          disabled={text.length === 0}
         >
           Extract Emails
-        </button>
+        </button> */}
         <button
           className="btn btn-dark mx-2 my-2"
           onClick={handletextExtract}
@@ -192,20 +178,6 @@ export default function TextForm(props) {
         >
           Reverse Text
         </button>
-        <button
-          className="btn btn-dark mx-2 my-2"
-          onClick={base64Encode}
-          disabled={text.length === 0}
-        >
-          Text to Base64
-        </button>
-        <button
-          className="btn btn-dark mx-2 my-2"
-          onClick={base64Decode}
-          disabled={text.length === 0}
-        >
-          Base64 to Text
-        </button>
         {/* <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button> */}
       </div>
       <div
@@ -218,7 +190,7 @@ export default function TextForm(props) {
           Your text has{" "}
           <strong>
             {
-              text.split(" ").filter((element) => {
+              text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length
             }

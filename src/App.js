@@ -56,7 +56,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Try Text-Utility-Pro : Word counter , Character counter , UpperCase to LowerCase , Remove Spaces, Extract Email Id"
+                  heading="Try Text-Utility-Pro : Word counter , Character counter , UpperCase to LowerCase , Remove Spaces"
                   mode={mode}
                   showAlert={showAlert}
                   des="Enter your Text Below to Analyse"
