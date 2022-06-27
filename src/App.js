@@ -44,7 +44,13 @@ function App() {
           <Routes>
             <Route
               path="/about"
-              element={<About mode={mode} showAlert={showAlert} heading="About Text-Utility-Pro"/>}
+              element={
+                <About
+                  mode={mode}
+                  showAlert={showAlert}
+                  heading="About Text-Utility-Pro"
+                />
+              }
             ></Route>
             <Route
               path="/"
@@ -57,7 +63,7 @@ function App() {
                 />
               }
             ></Route>
-            </Routes>
+          </Routes>
         </div>
       </Router>
     </>

@@ -9,7 +9,7 @@ export default function About(props) {
     >
       <h1>{props.heading}</h1>
       <div className="accordion" id="accordionExample">
-        <div className="accordion-item" style={{border:"2px solid white"}}>
+        <div className="accordion-item" style={{ border: "2px solid white" }}>
           <h2 className="accordion-header" id="headingOne">
             <button
               className="accordion-button"
@@ -39,16 +39,16 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
-              <strong>Text-Utility-Pro</strong> allows you to use text quickly and
-              efficiently. You can use it to convert text from UpperCase to
-              LowerCase, to clear the text,Cut Text for twitter,Extract Emails ,copy it to the clipboard, capitalize
-              each word, extract only text, extract only numbers, eliminate
-              extra spaces, decode Base64, convert Base64 to text, reverse the
-              text, and many more.
+            <strong>Text-Utility-Pro</strong> allows you to use text quickly and
+            efficiently. You can use it to convert text from UpperCase to
+            LowerCase, to clear the text,Cut Text for twitter,Extract Emails
+            ,copy it to the clipboard, capitalize each word, extract only text,
+            extract only numbers, eliminate extra spaces, decode Base64, convert
+            Base64 to text, reverse the text, and many more.
             </div>
           </div>
         </div>
-        <div className="accordion-item" style={{border:"2px solid white"}}>
+        <div className="accordion-item" style={{ border: "2px solid white" }}>
           <h2 className="accordion-header" id="headingTwo">
             <button
               className="accordion-button"
@@ -79,13 +79,14 @@ export default function About(props) {
               }}
             >
               <strong>Text-Utility-Pro</strong> is a free online text formatter
-              tool. Using Text-Utility-Pro, you can learn how many words,
-              characters, and how long it takes to read the text. Thus Text
-              Utiliz+ is suitable for writing text with a word/character limit.
+              tool. Using <strong>Text-Utility-Pro</strong>, you can learn how many words,
+              characters, and how long it takes to read the text. Thus
+              <strong>Text-Utility-Pro</strong> is suitable for writing text with a
+              word/character limit.
             </div>
           </div>
         </div>
-        <div className="accordion-item" style={{border:"2px solid white"}}>
+        <div className="accordion-item" style={{ border: "2px solid white" }}>
           <h2 className="accordion-header" id="headingThree">
             <button
               className="accordion-button"
@@ -99,7 +100,7 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
-            <h3>Browser Compatible</h3>
+              <h3>Browser Compatible</h3>
             </button>
           </h2>
           <div
@@ -126,3 +127,9 @@ export default function About(props) {
     </div>
   );
 }
+{/* <strong>Text-Utility-Pro</strong> allows you to use text quickly and
+            efficiently. You can use it to convert text from UpperCase to
+            LowerCase, to clear the text,Cut Text for twitter,Extract Emails
+            ,copy it to the clipboard, capitalize each word, extract only text,
+            extract only numbers, eliminate extra spaces, decode Base64, convert
+            Base64 to text, reverse the text, and many more. */}
