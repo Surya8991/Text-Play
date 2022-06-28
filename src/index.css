@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Ubuntu&display=swap');
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h3,h2{
+  font-family: 'Merriweather', serif;
+}
+h1,.nav-link{
+  font-family: 'Montserrat', sans-serif;
+}
+#footer{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+   padding-top: 15%;
+}
+.social-icon{
+    margin: 20px 10px;
+}
+.social-icon:hover{
+    transform: scale(1.5);
+}
+code {
+  font-family: 'Ubuntu', sans-serif;
+}
