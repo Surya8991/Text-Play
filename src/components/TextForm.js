@@ -101,12 +101,16 @@ export default function TextForm(props) {
   }}
   //To Download the text.
   const handleDownload = () => {
+    if(text.length!==0){
     var element = document.createElement("a");
     element.setAttribute("href", "data:text/plain;charset=utf-8," + text);
     element.setAttribute("download", "text.txt");
     element.click();
     props.showAlert("Downloaded the text", "success");
+  }else{
+    props.showAlert("No text to download", "warning");
   }
+}
   const [text, setText] = useState("");
   return (
     <>
