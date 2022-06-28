@@ -1,6 +1,6 @@
 import React from "react"; //We are importing React
 import PropTypes from "prop-types"; //We are importing the PropTypes library to use the PropTypes.element type.
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 export default function Navbar(props) {
   //props is an object that contains the properties that are passed to the component.
   return (
@@ -9,9 +9,12 @@ export default function Navbar(props) {
     >
       <div className="container-fluid">
         <h1>
-          <Link className="navbar-brand" to="/">
+          {/* <Link className="navbar-brand" to="/">
             {props.title}
-          </Link>
+          </Link> */}
+          <a className="navbar-brand" href="https://surya8991.github.io/Text-Utility-Pro">
+            {props.title}
+          </a>
         </h1>
         <button
           className="navbar-toggler"
@@ -27,15 +30,21 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="/">
+              {/* <Link className="nav-link" aria-current="page" to="/">
                 Home
-              </Link>
+              </Link> */}
+              <a className="nav-link" aria-current="page" href="#home">
+                Home
+              </a>
               {/* Navbar element for Home*/}
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              {/* <Link className="nav-link" to="/about">
                 {props.aboutText}
-              </Link>
+              </Link> */}
+              <a className="nav-link" href="#about">
+                {props.aboutText}
+              </a>
               {/* //Navbar element for About */}
             </li>
           </ul>

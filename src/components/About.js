@@ -7,7 +7,7 @@ export default function About(props) {
     <div
       className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
     >
-      <h1>{props.heading}</h1>
+      <h1>{props.title}</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item" style={{ border: "2px solid white" }}>
           <h2 className="accordion-header" id="headingOne">

@@ -16,6 +16,9 @@ h1,.nav-link{
   font-family: 'Montserrat', sans-serif;
    padding-top: 15%;
 }
+#about{
+  padding-top: 15%;
+}
 .social-icon{
     margin: 20px 10px;
 }
