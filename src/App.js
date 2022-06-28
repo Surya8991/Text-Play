@@ -1,11 +1,11 @@
 //Importing the React Components
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar"; //importing the Navbar component
 import TextForm from "./components/TextForm";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <Navbar
           title="Text-Utility-Pro"
           aboutText="About"
@@ -42,19 +42,19 @@ function App() {
         />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Routes>
+          <Routes>
             <Route
               path="/about"
-              element={ */}
-                {/* <About
+              element={ 
+              <About
                   mode={mode}
                   title="About Text-Utility-Pro"
-                /> */}
-              {/* }
-            ></Route> */}
-            {/* <Route
+                /> 
+               }
+            ></Route>
+            <Route
               path="/"
-              element={ */}
+              element={
                 <TextForm
                   heading="Try Text-Utility-Pro : Word counter , Character counter , UpperCase to LowerCase , Remove Spaces , Extract Email Ids , Download Text"
                   mode={mode}
@@ -62,12 +62,12 @@ function App() {
                   showAlert={showAlert}
                   des="Enter your Text Below to Analyse"
                 />
-              {/* }
+               }
             ></Route>
-          </Routes> */}
+          </Routes> 
         </div>
         <Footer mode={mode}/>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }

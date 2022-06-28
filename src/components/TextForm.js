@@ -239,7 +239,7 @@ export default function TextForm(props) {
       
       
       {/* To Host in Github Page */}
-      <div
+      {/* <div
       className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
       id="about"
     >
@@ -395,7 +395,8 @@ export default function TextForm(props) {
         </div>
       </div>
     </div>
-    {/* About Section Ends here */}
+    About Section Ends here */}
+
     </>
   );
 }
