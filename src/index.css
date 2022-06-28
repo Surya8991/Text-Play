@@ -25,3 +25,6 @@ h1,.nav-link{
 code {
   font-family: 'Ubuntu', sans-serif;
 }
+.btn:hover{
+  transform: scale(1.2);
+}

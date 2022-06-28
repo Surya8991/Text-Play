@@ -92,6 +92,40 @@ export default function About(props) {
               className="accordion-button"
               type="button"
               data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour"
+              style={{
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
+              }}
+            >
+              <h3>Free Download</h3>
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            className="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample"
+          >
+            <div
+              className="accordion-body"
+              style={{
+                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
+                color: props.mode === "dark" ? "white" : "#06283D",
+              }}
+            >
+              With <strong>Text-Utility-Pro</strong> you can download the contents of the text in Text.txt name.
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item" style={{ border: "2px solid white" }}>
+          <h2 className="accordion-header" id="headingThree">
+            <button
+              className="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"

@@ -23,13 +23,13 @@ export default function TextForm(props) {
   };
   //To extract the words from the text.
   const handletextExtract = () => {
-    const letters = text.match(/[/A-Z/a-z/ /]/g);
+    const letters = text.match(/[/A-Z/a-z/]/g);
     if (letters !== null) {
       const res1 = letters.join("");
       setText(res1);
       props.showAlert("Extracted the words from the text", "success");
     } else {
-      props.showAlert("No words found in the text", "error");
+      props.showAlert("No words found in the text", "warning");
     }
   };
   //To extract the mail id from the text.
@@ -99,6 +99,14 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert("Text is Now 180 Characters!", "success");
   }}
+  //To Download the text.
+  const handleDownload = () => {
+    var element = document.createElement("a");
+    element.setAttribute("href", "data:text/plain;charset=utf-8," + text);
+    element.setAttribute("download", "text.txt");
+    element.click();
+    props.showAlert("Downloaded the text", "success");
+  }
   const [text, setText] = useState("");
   return (
     <>
@@ -200,6 +208,13 @@ export default function TextForm(props) {
         >
           Reverse Text
         </button>
+        <button
+          className="btn btn-lg btn-dark mx-2 my-2"
+          onClick={handleDownload}
+          disabled={text.length === 0}
+        >
+          Download Text
+        </button>
         {/* <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button> */}
       </div>
       <div
@@ -207,25 +222,8 @@ export default function TextForm(props) {
       >
         <h2 className="my-3">Text Summary</h2>
         {/* To display the word and characters count */}
-        <p>
-          {""}
-          Your text has{" "}
-          <strong>
-            {
-              text.split(/\s+/).filter((element) => {
-                return element.length !== 0;
-              }).length
-            }
-          </strong>{" "}
-          words And <strong>{text.length}</strong> characters. It takes{" "}
-          <strong>
-            {0.008 *
-              text.split(" ").filter((element) => {
-                return element.length !== 0;
-              }).length}
-          </strong>{" "}
-          Minutes to read the text.
-        </p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+            <p>{0.008 *  text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
         {/* //To display the text preview.*/}
         <h2 className="my-3">Text Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to preview"}</p>
