@@ -10,7 +10,7 @@ function Footer(props) {
     <a className={`text-${props.mode === "dark" ? "light" : "dark"}`} href='https://twitter.com/SURYA_L1998'><i className="social-icon fab fa-twitter fa-2x"></i></a>
     <a className={`text-${props.mode === "dark" ? "light" : "dark"}`} href='https://www.linkedin.com/in/surya-l/'><i className="social-icon fab fa-linkedin fa-2x"></i></a>
     <a className={`text-${props.mode === "dark" ? "light" : "dark"}`} href='https://github.com/Surya8991'><i className="social-icon fab fa-github fa-2x"></i></a>
-    <h5>© Copyright 2022-{new Date().getFullYear()} by Surya L</h5>
+    <h5>© Copyright 2022-{new Date().getFullYear()} by - Surya L</h5>
     </div>
   </footer>
 
