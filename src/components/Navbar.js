@@ -12,7 +12,7 @@ export default function Navbar(props) {
           {/* <Link className="navbar-brand" to="/">
             {props.title}
           </Link> */}
-          <a className="navbar-brand" href="https://surya8991.github.io/Text-Utility-Pro/#home">
+          <a className="navbar-brand" href="#home">
             {props.title}
           </a>
         </h1>
