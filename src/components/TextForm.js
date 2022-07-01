@@ -112,7 +112,8 @@ export default function TextForm(props) {
       props.showAlert("No text to download", "warning");
     }
   }
-  //To speak the text.
+  
+  //To speak the text and stop on click.
   const handleSpeak = () => {
     if (text.length !== 0) {
       var msg = new SpeechSynthesisUtterance(text);
@@ -120,6 +121,23 @@ export default function TextForm(props) {
       props.showAlert("Text is spoken", "success");
     } else {
       props.showAlert("No text to speak", "warning");
+    }
+  }
+  // To stop speach when clicked.
+  const handleStopSpeech = () => {
+      window.speechSynthesis.cancel();
+      props.showAlert("Text is Stoped", "success");
+  }
+  // To share the text.
+  const handleShare = () => {
+    if (text.length !== 0) {
+      var element = document.createElement("a");
+      element.setAttribute("href", "data:text/plain;charset=utf-8," + text);
+      element.setAttribute("download", "text.txt");
+      element.click();
+      props.showAlert("Text is shared", "success");
+    } else {
+      props.showAlert("No text to share", "warning");
     }
   }
     const [text, setText] = useState("");
@@ -232,6 +250,8 @@ export default function TextForm(props) {
             Download Text
           </button>
           <button type="submit" onClick={handleSpeak} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Speak</button>
+          <button type="submit" onClick={handleStopSpeech} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Stop Speak</button>
+          <button type="submit" onClick={handleShare} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Share</button>
         </div>
         <div
           className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
