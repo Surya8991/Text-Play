@@ -36,7 +36,7 @@ function App() {
       <Router>
         <Navbar
           title="Text-Utility-Pro"
-          aboutText="About"
+          aboutText="About Text-Utility-Pro"
           mode={mode}
           toggleMode={toggleSwitch}
         />
