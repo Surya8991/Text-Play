@@ -258,8 +258,8 @@ if(speechSynthesis.speaking)
           <h2 className="my-3">Text Summary</h2>
           {/* To display the word and characters count */}
           <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters.</p>
-          <p>{0.008 * text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} Minutes read</p>
-          <p>It takes {Math.floor((text.split(/\s+/).filter((element) => { return element.length !== 0 }).length)*0.00714285714)} minutes to Speak</p>
+          <p>{Math.floor((0.008 * text.split(/\s+/).filter((element) => { return element.length !== 0 }).length)*100)/100} Minutes read</p>
+          <p>It takes {Math.floor(((text.split(/\s+/).filter((element) => { return element.length !== 0 }).length)*0.00714285714)*100)/100} minutes to Speak</p>
           {/* //To display the text preview.*/}
           <h2 className="my-3">Text Preview</h2>
           <p>{text.length > 0 ? text : "Nothing to preview"}</p>
