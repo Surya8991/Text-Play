@@ -116,7 +116,7 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#06283D",
               }}
             >
-              With <strong>Text-Utility-Pro</strong> you can download the contents of the text in Text.txt name.
+              With <strong>Text-Utility-Pro</strong> you can download the contents of the text in Text.txt name for Free.
             </div>
           </div>
         </div>
