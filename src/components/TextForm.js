@@ -14,6 +14,7 @@ export default function TextForm(props) {
   };
   //To clear the text.
   const handleclearText = () => {
+    window.speechSynthesis.cancel();
     let newText = "";
     setText(newText);
     props.showAlert("Cleared Text!", "success");
@@ -23,7 +24,7 @@ export default function TextForm(props) {
   };
   //To extract the words from the text.
   const handletextExtract = () => {
-    const letters = text.match(/[/A-Z/a-z/]/g);
+    const letters = text.match(/[/A-Z/a-z/ /./]/g);
     if (letters !== null) {
       const res1 = letters.join("");
       setText(res1);
@@ -115,19 +116,18 @@ export default function TextForm(props) {
   
   //To speak the text and stop on click.
   const handleSpeak = () => {
-    if (text.length !== 0) {
+if(speechSynthesis.speaking)
+    {
+      window.speechSynthesis.cancel();
+      props.showAlert("Text is Stoped", "success");
+    }else if (text.length !== 0) {
       var msg = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(msg);
       props.showAlert("Text is spoken", "success");
     } else {
       props.showAlert("No text to speak", "warning");
     }
-  }
-  // To stop speach when clicked.
-  const handleStopSpeech = () => {
-      window.speechSynthesis.cancel();
-      props.showAlert("Text is Stoped", "success");
-  }
+    }
   // // To share the text.
   // const handleShare = () => {
   //   if (text.length !== 0) {
@@ -250,7 +250,6 @@ export default function TextForm(props) {
             Download Text
           </button>
           <button type="submit" onClick={handleSpeak} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Speak</button>
-          <button type="submit" onClick={handleStopSpeech} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Stop Speak</button>
           {/* <button type="submit" onClick={handleShare} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Share</button> */}
         </div>
         <div
@@ -258,8 +257,9 @@ export default function TextForm(props) {
         >
           <h2 className="my-3">Text Summary</h2>
           {/* To display the word and characters count */}
-          <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
+          <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters.</p>
           <p>{0.008 * text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} Minutes read</p>
+          <p>It takes {Math.floor((text.split(/\s+/).filter((element) => { return element.length !== 0 }).length)*0.00714285714)} minutes to Speak</p>
           {/* //To display the text preview.*/}
           <h2 className="my-3">Text Preview</h2>
           <p>{text.length > 0 ? text : "Nothing to preview"}</p>
