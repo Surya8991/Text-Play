@@ -14,7 +14,7 @@ export default function TextForm(props) {
   };
   //To clear the text.
   const handleclearText = () => {
-    window.speechSynthesis.cancel();
+    // window.speechSynthesis.cancel();
     let newText = "";
     setText(newText);
     props.showAlert("Cleared Text!", "success");
@@ -113,33 +113,24 @@ export default function TextForm(props) {
       props.showAlert("No text to download", "warning");
     }
   }
-  
-  //To speak the text and stop on click.
-  const handleSpeak = () => {
-if(speechSynthesis.speaking)
-    {
-      window.speechSynthesis.cancel();
-      props.showAlert("Text is Stoped", "success");
-    }else if (text.length !== 0) {
-      var msg = new SpeechSynthesisUtterance(text);
-      window.speechSynthesis.speak(msg);
-      props.showAlert("Text is spoken", "success");
-    } else {
-      props.showAlert("No text to speak", "warning");
-    }
-    }
-  // // To share the text.
-  // const handleShare = () => {
-  //   if (text.length !== 0) {
-  //     var element = document.createElement("a");
-  //     element.setAttribute("href", "data:text/plain;charset=utf-8," + text);
-  //     element.setAttribute("download", "text.txt");
-  //     element.click();
-  //     props.showAlert("Text is shared", "success");
-  //   } else {
-  //     props.showAlert("No text to share", "warning");
-  //   }
-  // }
+//   //To speak the text and stop on click.
+//   const handleSpeak = () => {
+// if(speechSynthesis.speaking)
+//     {
+//       window.speechSynthesis.cancel();
+//       props.showAlert("Text is Stoped", "success");
+//     }else if (text.length !== 0) {
+//       var msg = new SpeechSynthesisUtterance(text);
+//       window.speechSynthesis.speak(msg);
+//       props.showAlert("Text is spoken", "success");
+//     } else {
+//       props.showAlert("No text to speak", "warning");
+//     }
+//     }
+//   //Program to execute clear button when we move to another page
+//   window.onbeforeunload = function () { 
+//     window.speechSynthesis.cancel();
+//   }
     const [text, setText] = useState("");
     return (
       <>
@@ -249,8 +240,7 @@ if(speechSynthesis.speaking)
           >
             Download Text
           </button>
-          <button type="submit" onClick={handleSpeak} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Speak</button>
-          {/* <button type="submit" onClick={handleShare} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Share</button> */}
+          {/* <button type="submit" onClick={handleSpeak} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Speak</button> */}
         </div>
         <div
           className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
