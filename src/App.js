@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 function App() {
   const [mode, setMode] = useState("light"); //we are defining the mode of the navbar.
   const [alert, setAlert] = useState(null);
-
+  const [modeOn,setModeOn]=useState("Enable dark mode")
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type });
     setTimeout(() => {
@@ -24,10 +24,12 @@ function App() {
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = "#06283D";
+      setModeOn("Enable Light Mode");
       showAlert("Enabled Dark Mode", "success");
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
+      setModeOn("Enable Dark Mode");
       showAlert("Enabled Light Mode", "success");
     }
   };
@@ -39,6 +41,7 @@ function App() {
           aboutText="About Text-Utility-Pro"
           mode={mode}
           toggleMode={toggleSwitch}
+          modeOn={modeOn}
         />
         <Alert alert={alert} />
         <div className="container my-3">
