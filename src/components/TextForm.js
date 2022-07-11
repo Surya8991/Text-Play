@@ -111,24 +111,6 @@ export default function TextForm(props) {
       props.showAlert("No text to download", "warning");
     }
   }
-  //   //To speak the text and stop on click.
-  //   const handleSpeak = () => {
-  // if(speechSynthesis.speaking)
-  //     {
-  //       window.speechSynthesis.cancel();
-  //       props.showAlert("Text is Stoped", "success");
-  //     }else if (text.length !== 0) {
-  //       var msg = new SpeechSynthesisUtterance(text);
-  //       window.speechSynthesis.speak(msg);
-  //       props.showAlert("Text is spoken", "success");
-  //     } else {
-  //       props.showAlert("No text to speak", "warning");
-  //     }
-  //     }
-  //   //Program to execute clear button when we move to another page
-  //   window.onbeforeunload = function () { 
-  //     window.speechSynthesis.cancel();
-  //   }
   const [text, setText] = useState("");
   return (
     <>
@@ -237,7 +219,6 @@ export default function TextForm(props) {
         >
           Download Text
         </button>
-        {/* <button type="submit" onClick={handleSpeak} className="btn btn-lg btn-dark mx-2 my-2" disabled={text.length === 0}>Speak</button> */}
       </div>
       <div
         className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
