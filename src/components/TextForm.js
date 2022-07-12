@@ -228,7 +228,7 @@ export default function TextForm(props) {
         <p>Your Text has <strong>{text.length}</strong> characters. It takes{" "}
           <strong>
             {Math.floor((0.008 *
-              text.length)*100)/100}
+              text.length) * 100) / 100}
           </strong>{" "}
           Minutes to read the text.
         </p>

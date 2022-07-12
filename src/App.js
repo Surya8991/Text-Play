@@ -19,11 +19,11 @@ function App() {
     }, 2000);
   };
 
-  //Toggling the mode of the navbar like light and dark mode.
+  //Toggling the mode of the navbar like light and dark mode. 
   const toggleSwitch = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "#06283D";
+      document.body.style.backgroundColor = "#0F0E0E";
       setModeOn("Enable Light Mode");
       showAlert("Enabled Dark Mode", "success");
     } else {

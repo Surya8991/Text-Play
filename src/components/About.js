@@ -19,8 +19,8 @@ export default function About(props) {
               aria-expanded="true"
               aria-controls="collapseOne"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               <h3>Analyse your Text</h3>
@@ -35,8 +35,8 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               <strong>Text-Utility-Pro</strong> allows you to use text quickly and
@@ -58,8 +58,8 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseTwo"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               <h3>Free to use</h3>
@@ -74,8 +74,8 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               <strong>Text-Utility-Pro</strong> is a free online text formatter
@@ -96,8 +96,8 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseFour"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               <h3>Free Download</h3>
@@ -112,8 +112,8 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               With <strong>Text-Utility-Pro</strong> you can download the contents of the text in Text.txt name for Free.
@@ -130,8 +130,8 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseThree"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               <h3>Browser Compatible</h3>
@@ -146,8 +146,8 @@ export default function About(props) {
             <div
               className="accordion-body"
               style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
+                backgroundColor: props.mode === "dark" ? "#0F0E0E" : "white",
+                color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
               Using this software, you can analyze text in Web browsers such as
