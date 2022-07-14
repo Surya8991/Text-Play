@@ -24,7 +24,7 @@ export default function TextForm(props) {
   };
   //To extract the words from the text.
   const handletextExtract = () => {
-    const letters = text.match(/[/A-Z/a-z/ /./]/g);
+    const letters = text.match(/\w+/g);
     if (letters !== null) {
       const res1 = letters.join("");
       setText(res1);
@@ -109,6 +109,18 @@ export default function TextForm(props) {
       props.showAlert("Downloaded the text", "success");
     } else {
       props.showAlert("No text to download", "warning");
+    }
+  }
+  //To extract links from the text.
+  const handleLinkExtract = () => {
+    let links = text.match(
+      /(http|https|ftp|ftps|file|ssh|sftp|ftp|file|telnet|webdav|news|nntp|mid|mailto|snews|irc|gopher|wais|prospero|z39.50s|z39.50r|z39.50|telnet|ms-help):\/\/[^\s]+/gi
+    );
+    if (links != null) {
+      setText(links);
+      props.showAlert("Extracted the links from the text", "success");
+    } else {
+      props.showAlert("No links found", "warning");
     }
   }
   const [text, setText] = useState("");
@@ -211,6 +223,13 @@ export default function TextForm(props) {
           disabled={text.length === 0}
         >
           Reverse Text
+        </button>
+        <button
+          className="btn btn-dark mx-2 my-2"
+          onClick={handleLinkExtract}
+          disabled={text.length === 0}
+        >
+          Extract Links
         </button>
         <button
           className="btn btn-lg btn-dark mx-2 my-2"

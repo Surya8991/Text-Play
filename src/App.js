@@ -59,7 +59,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Try Text-Utility-Pro : Word counter , Character counter , UpperCase to LowerCase , Remove Spaces , Extract Email Ids , Download Text"
+                  heading="Try Text-Utility-Pro : Word counter , Character counter , UpperCase to LowerCase , Remove Spaces , Extract Email Ids And Links, Download Text"
                   mode={mode}
                   title="About Text-Utility-Pro"
                   showAlert={showAlert}
