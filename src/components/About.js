@@ -41,7 +41,7 @@ export default function About(props) {
             >
               <strong>Text-Utility-Pro</strong> allows you to use text quickly and
               efficiently. You can use it to convert text from UpperCase to
-              LowerCase, to clear the text,Cut Text for twitter,Extract Emails
+              LowerCase, to clear the text,Cut Text for twitter,Extract Emails and Links,Download Text
               ,copy it to the clipboard, capitalize each word, extract only text,
               extract only numbers, eliminate extra spaces, decode Base64, convert
               Base64 to text, reverse the text, and many more.
@@ -100,7 +100,7 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
-              <h3>Free Download</h3>
+              <h3>Free to Download</h3>
             </button>
           </h2>
           <div
