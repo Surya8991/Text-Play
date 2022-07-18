@@ -130,7 +130,7 @@ export default function TextForm(props) {
         className="container"
         style={{ color: props.mode === 'dark' ? 'white' : '#06283D' }}
       >
-        <h2 className="mb-4">{props.heading}</h2>
+        <h1 className="mb-4">{props.heading}</h1>
         <h5 className="mb-4">{props.des}</h5>
         <div className="mb-3">
           {/* Text area where you enter the text */}
