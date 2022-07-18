@@ -123,6 +123,16 @@ export default function TextForm(props) {
       props.showAlert("No links found", "warning");
     }
   }
+  const handleSpeakClick = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  };
+  const handleStopClick = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.cancel(msg);
+  };
   const [text, setText] = useState("");
   return (
     <>
@@ -238,18 +248,35 @@ export default function TextForm(props) {
         >
           Download Text
         </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-dark mx-2 my-2"
+          onClick={handleSpeakClick}
+        >
+          Listen Now
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-dark mx-1 my-2"
+          onClick={handleStopClick}
+        >
+          Stop Now
+        </button>
       </div>
       <div
         className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
       >
-        <h2 className="my-3">Text Summary</h2>
-        {/* To display the word and characters count */}
-        <p>Your Text has <strong>{text.length}</strong> characters. It takes{" "}
-          <strong>
-            {Math.floor((0.008 *
-              text.length) * 100) / 100}
-          </strong>{" "}
-          Minutes to read the text.
+        <h2>Your text summary</h2>
+        <p>
+          {/* {text.length > 0 ? text.trim().split(/\s+/).length : 0} words,{" "} */}
+          {text.length} characters
+        </p>
+        <p>
+          {0.08 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes read
         </p>
         {/* //To display the text preview.*/}
         <h2 className="my-3">Text Preview</h2>
