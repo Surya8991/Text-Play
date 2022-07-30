@@ -39,7 +39,7 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
-              <strong>Text-Utility-Pro</strong> allows you to use text quickly and
+              <strong>TextPlay</strong> allows you to use text quickly and
               efficiently. You can use it to convert text from UpperCase to
               LowerCase, to clear the text,Cut Text for twitter,Extract Emails and Links,Download Text
               ,copy it to the clipboard, capitalize each word, extract only text,
@@ -77,10 +77,10 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
-              <strong>Text-Utility-Pro</strong> is a free online text formatter
-              tool. Using <strong>Text-Utility-Pro</strong>, you can learn how many words,
+              <strong>TextPlay</strong> is a free online text formatter
+              tool. Using <strong>TextPlay</strong>, you can learn how many words,
               characters, and how long it takes to read the text. Thus
-              <strong>Text-Utility-Pro</strong> is suitable for writing text with a
+              <strong>TextPlay</strong> is suitable for writing text with a
               word/character limit.
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function About(props) {
                 color: props.mode === "dark" ? "white" : "#0F0E0E",
               }}
             >
-              With <strong>Text-Utility-Pro</strong> you can download the contents of the text in Text.txt name for Free.
+              With <strong>TextPlay</strong> you can download the contents of the text in Text.txt name for Free.
             </div>
           </div>
         </div>

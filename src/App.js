@@ -37,8 +37,8 @@ function App() {
     <>
       <Router>
         <Navbar
-          title="Text-Utility-Pro"
-          aboutText="About Text-Utility-Pro"
+          title="TextPlay.in"
+          aboutText="About"
           mode={mode}
           toggleMode={toggleSwitch}
           modeOn={modeOn}
@@ -51,7 +51,7 @@ function App() {
               element={ 
               <About
                   mode={mode}
-                  title="About Text-Utility-Pro"
+                  title="About TextPlay"
                 /> 
                }
             ></Route>
@@ -59,7 +59,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Try Text-Utility-Pro : UpperCase to LowerCase , Remove Spaces , Extract Emails And Links, Download Text"
+                  heading="Try TextPlay.in :To play with your text"
                   mode={mode}
                   title="About Text-Utility-Pro"
                   showAlert={showAlert}
