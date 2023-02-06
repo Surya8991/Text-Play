@@ -16,4 +16,4 @@
               used to count characters in Facebook, blogs, books, excel
               documents, pdf documents, essays, etc.
               <br>
-<h2><a href="https://text-utility-pro.netlify.app/">Link to Site </a></h2>
+<h2><a href="https://text-utility-pro.netlify.app/" target="_blank">Link to Site </a></h2>
