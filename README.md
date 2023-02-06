@@ -15,3 +15,5 @@
               Chrome, Firefox, Internet Explorer, Safari, and Opera. It can be
               used to count characters in Facebook, blogs, books, excel
               documents, pdf documents, essays, etc.
+              <br>
+<h2><a href="https://text-utility-pro.netlify.app/">Link to Site </a></h2>
