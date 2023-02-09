@@ -280,7 +280,7 @@ export default function TextForm(props) {
         </p>
         {/* //To display the text preview.*/}
         <h2 className="my-3">Text Preview</h2>
-        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
+        <p className="prev">{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
 
       {/* To Host in Github Page */}
