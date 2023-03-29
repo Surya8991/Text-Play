@@ -255,7 +255,7 @@ export default function TextForm(props) {
           Beautify JSON
         </button>
         <button
-          className="btn btn-dark mx-2 my-2"
+          className="btn btn-dark mx-2  my-2"
           onClick={handletextExtract}
           disabled={text.length === 0}
         >
