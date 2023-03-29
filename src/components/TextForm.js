@@ -24,17 +24,17 @@ export default function TextForm(props) {
   };
   //To extract the words from the text.
   const handletextExtract = () => {
-    const letters = text.match(/[a-z]|[A-Z]/g);
-    if (letters !== null) {
-      const res1 = letters.join("");
-      setText(res1);
+    const words = text.match(/[a-zA-Z]+/g);
+    if (words !== null) {
+      const res = words.join(" ");
+      setText(res);
       props.showAlert("Extracted the words from the text", "success");
     } else {
       props.showAlert("No words found in the text", "warning");
     }
-  };
+  };  
   //To extract the mail id from the text.
-  const handlemailExtract = () => {
+  const handleEmailExtract = () => {
     let emailIds = text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
     if (emailIds != null) {
       setText(emailIds);
@@ -42,7 +42,8 @@ export default function TextForm(props) {
     } else {
       props.showAlert("No email id found", "warning");
     }
-  };
+};
+
   //To extract the number from the text.
   const handleNumExtract = () => {
     const digits = text.match(/[0-9]/g);
@@ -62,45 +63,60 @@ export default function TextForm(props) {
       let firstChar = word.charAt(0).toUpperCase();
       updatedText = updatedText + (firstChar + word.slice(1)) + " ";
     });
-    setText(updatedText);
+    setText(updatedText.trim());
     props.showAlert("Capitalized the first letter of each word", "success");
   };
-  //To reverse the text.
+  
+  // To Reverse Text
   function handleRevClick() {
-    setText(
-      text
-        .split("")
-        .reverse()
-        .join("")
-    );
-    props.showAlert("Reversed Text", "success");
-  }
-  //To remove extra spaces from the text.
+    if (text.length > 0) {
+      setText(
+        text
+          .split("")
+          .reverse()
+          .join("")
+      );
+      props.showAlert("Reversed Text", "success");
+    } else {
+      props.showAlert("No text to reverse", "warning");
+    }
+  }  
+  // Remove Extra spaces
   const handleExtraSpaces = () => {
-    let newText = text.split(/[ ]+/);
+    let newText = text.trim().split(/ +/);
     setText(newText.join(" "));
     props.showAlert("Extra spaces removed!", "success");
   };
+  
   //To copy to clipboard.
   const handleCopy = () => {
-    var text = document.getElementById("myForm");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    props.showAlert("Copied to Clipboard", "success");
+    if (text.length !== 0) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          props.showAlert("Copied to Clipboard", "success");
+        })
+        .catch((error) => {
+          console.error("Failed to copy text: ", error);
+          props.showAlert("Failed to copy text", "error");
+        });
+    } else {
+      props.showAlert("No text to copy", "warning");
+    }
   };
+  
   //To cut the text for Twitter.
   const handleCut = () => {
-    let newText = text.substring(0, 180);
-    if (newText.length < 180) {
+    if (text.length > 180) {
+      let newText = text.substring(0, 180);
       setText(newText);
-      props.showAlert("Text is less 180 Characters!", "warning");
+      props.showAlert("Text is now 180 characters!", "success");
     } else {
-      setText(newText);
-      props.showAlert("Text is Now 180 Characters!", "success");
+      props.showAlert("Text is less than 180 characters!", "warning");
     }
   }
+  
   //To Download the text.
-  const handleDownload = () => {
+  function handleDownload() {
     if (text.length !== 0) {
       var element = document.createElement("a");
       element.setAttribute("href", "data:text/plain;charset=utf-8," + text);
@@ -111,28 +127,53 @@ export default function TextForm(props) {
       props.showAlert("No text to download", "warning");
     }
   }
+  
   //To extract links from the text.
+  // const handleLinkExtract = () => {
+  //   let links = text.match(
+  //     /(http|https|ftp|ftps|file|ssh|sftp|ftp|file|telnet|webdav|news|nntp|mid|mailto|snews|irc|gopher|wais|prospero|z39.50s|z39.50r|z39.50|telnet|ms-help):\/\/[^\s]+/gi
+  //   );
+  //   if (links != null) {
+  //     setText(links);
+  //     props.showAlert("Extracted the links from the text", "success");
+  //   } else {
+  //     props.showAlert("No links found", "warning");
+  //   }
+  // }
   const handleLinkExtract = () => {
-    let links = text.match(
-      /(http|https|ftp|ftps|file|ssh|sftp|ftp|file|telnet|webdav|news|nntp|mid|mailto|snews|irc|gopher|wais|prospero|z39.50s|z39.50r|z39.50|telnet|ms-help):\/\/[^\s]+/gi
-    );
-    if (links != null) {
-      setText(links);
-      props.showAlert("Extracted the links from the text", "success");
+    const linkRegex = /(https?|ftp|ssh|telnet|webdav|news|nntp):\/\/[^\s/$.?#].[^\s]*/gi;
+    const links = text.match(linkRegex);
+  
+    if (links !== null) {
+      setText(links.join('\n'));
+      props.showAlert('Links extracted from the text', 'success');
     } else {
-      props.showAlert("No links found", "warning");
+      props.showAlert('No links found', 'warning');
     }
-  }
+  };
+  
   const handleSpeakClick = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
   };
+  
   const handleStopClick = () => {
-    let msg = new SpeechSynthesisUtterance();
-    msg.text = text;
-    window.speechSynthesis.cancel(msg);
+    window.speechSynthesis.cancel();
   };
+  
+  // To Beautify JSON
+  const beautifyJSON = () => {
+    try {
+      let json = JSON.parse(text);
+      let beautifiedJSON = JSON.stringify(json, null, 2);
+      setText(beautifiedJSON);
+      props.showAlert("JSON Beautified!", "success");
+    } catch (error) {
+      props.showAlert("Invalid JSON", "error");
+    }
+  };
+  
   const [text, setText] = useState("");
   return (
     <>
@@ -201,10 +242,17 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn btn-dark mx-2 my-2"
-          onClick={handlemailExtract}
+          onClick={handleEmailExtract}
           disabled={text.length === 0}
         >
           Extract Emails
+        </button>
+        <button
+          className="btn btn-dark mx-2 my-2"
+          onClick={beautifyJSON}
+          disabled={text.length === 0}
+        >
+          Beautify JSON
         </button>
         <button
           className="btn btn-dark mx-2 my-2"
