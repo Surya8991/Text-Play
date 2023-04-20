@@ -3,10 +3,12 @@ import "./App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar"; //importing the Navbar component
 import TextForm from "./components/TextForm";
+import LinkExtractor from "./components/LinkExtractor"
 import React, { useState } from "react";
 import Alert from "./components/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
+
 
 function App() {
   const [mode, setMode] = useState("light"); //we are defining the mode of the navbar.
@@ -39,6 +41,8 @@ function App() {
         <Navbar
           title="TextPlay.in"
           aboutText="About"
+          linkText='Link Extractor'
+          emailText="Email Extractor"
           mode={mode}
           toggleMode={toggleSwitch}
           modeOn={modeOn}
@@ -52,6 +56,28 @@ function App() {
               <About
                   mode={mode}
                   title="About TextPlay"
+                /> 
+               }
+            ></Route>
+            <Route
+              path="/linkExtractor"
+              element={ 
+              <LinkExtractor
+              heading="TextPlay.in :Link Extractor"
+              mode={mode}
+              showAlert={showAlert}
+              des="Enter your text to extract Links"
+                /> 
+               }
+            ></Route>
+            <Route
+              path="/emailExtractor"
+              element={ 
+              <LinkExtractor
+              heading="TextPlay.in :Email Extractor"
+              mode={mode}
+              showAlert={showAlert}
+              des="Enter your text to extract Emails"
                 /> 
                }
             ></Route>

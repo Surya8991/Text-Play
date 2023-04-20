@@ -33,18 +33,7 @@ export default function TextForm(props) {
       props.showAlert("No words found in the text", "warning");
     }
   };  
-  //To extract the mail id from the text.
-  const handleEmailExtract = () => {
-    let emailIds = text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
-    if (emailIds != null) {
-      setText(emailIds);
-      props.showAlert("Extracted Email Ids from the text", "success");
-    } else {
-      props.showAlert("No email id found", "warning");
-    }
-};
-
-  //To extract the number from the text.
+    //To extract the number from the text.
   const handleNumExtract = () => {
     const digits = text.match(/[0-9]/g);
     if (digits != null) {
@@ -127,31 +116,6 @@ export default function TextForm(props) {
       props.showAlert("No text to download", "warning");
     }
   }
-  
-  //To extract links from the text.
-  // const handleLinkExtract = () => {
-  //   let links = text.match(
-  //     /(http|https|ftp|ftps|file|ssh|sftp|ftp|file|telnet|webdav|news|nntp|mid|mailto|snews|irc|gopher|wais|prospero|z39.50s|z39.50r|z39.50|telnet|ms-help):\/\/[^\s]+/gi
-  //   );
-  //   if (links != null) {
-  //     setText(links);
-  //     props.showAlert("Extracted the links from the text", "success");
-  //   } else {
-  //     props.showAlert("No links found", "warning");
-  //   }
-  // }
-  const handleLinkExtract = () => {
-    const linkRegex = /(https?|ftp|ssh|telnet|webdav|news|nntp):\/\/[^\s/$.?#].[^\s]*/gi;
-    const links = text.match(linkRegex);
-  
-    if (links !== null) {
-      setText(links.join('\n'));
-      props.showAlert('Links extracted from the text', 'success');
-    } else {
-      props.showAlert('No links found', 'warning');
-    }
-  };
-  
   const handleSpeakClick = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
@@ -242,13 +206,6 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn btn-dark mx-2 my-2"
-          onClick={handleEmailExtract}
-          disabled={text.length === 0}
-        >
-          Extract Emails
-        </button>
-        <button
-          className="btn btn-dark mx-2 my-2"
           onClick={beautifyJSON}
           disabled={text.length === 0}
         >
@@ -281,13 +238,6 @@ export default function TextForm(props) {
           disabled={text.length === 0}
         >
           Reverse Text
-        </button>
-        <button
-          className="btn btn-dark mx-2 my-2"
-          onClick={handleLinkExtract}
-          disabled={text.length === 0}
-        >
-          Extract Links
         </button>
         <button
           className="btn btn-lg btn-dark mx-2 my-2"
@@ -330,166 +280,6 @@ export default function TextForm(props) {
         <h2 className="my-3">Text Preview</h2>
         <p className="prev">{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
-
-      {/* To Host in Github Page */}
-      {/* <div
-      className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
-      id="about"
-    >
-      <h1>{props.title}</h1>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item" style={{ border: "2px solid white" }}>
-          <h2 className="accordion-header" id="headingOne">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              <h3>Analyse your Text</h3>
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className="accordion-collapse collapse show"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
-          >
-            <div
-              className="accordion-body"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              <strong>Text-Utility-Pro</strong> allows you to use text quickly and
-              efficiently. You can use it to convert text from UpperCase to
-              LowerCase, to clear the text,Cut Text for twitter,Extract Emails
-              ,copy it to the clipboard, capitalize each word, extract only text,
-              extract only numbers, eliminate extra spaces, decode Base64, convert
-              Base64 to text, reverse the text, and many more.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item" style={{ border: "2px solid white" }}>
-          <h2 className="accordion-header" id="headingTwo">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              <h3>Free to use</h3>
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample"
-          >
-            <div
-              className="accordion-body"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              <strong>Text-Utility-Pro</strong> is a free online text formatter
-              tool. Using <strong>Text-Utility-Pro</strong>, you can learn how many words,
-              characters, and how long it takes to read the text. Thus
-              <strong>Text-Utility-Pro</strong> is suitable for writing text with a
-              word/character limit.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item" style={{ border: "2px solid white" }}>
-          <h2 className="accordion-header" id="headingThree">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseFour"
-              aria-expanded="false"
-              aria-controls="collapseFour"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              <h3>Free Download</h3>
-            </button>
-          </h2>
-          <div
-            id="collapseFour"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample"
-          >
-            <div
-              className="accordion-body"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              With <strong>Text-Utility-Pro</strong> you can download the contents of the text in Text.txt name.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item" style={{ border: "2px solid white" }}>
-          <h2 className="accordion-header" id="headingThree">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              <h3>Browser Compatible</h3>
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample"
-          >
-            <div
-              className="accordion-body"
-              style={{
-                backgroundColor: props.mode === "dark" ? "#06283D" : "white",
-                color: props.mode === "dark" ? "white" : "#06283D",
-              }}
-            >
-              Using this software, you can analyze text in Web browsers such as
-              Chrome, Firefox, Internet Explorer, Safari, and Opera. It can be
-              used to count characters in Facebook, blogs, books, excel
-              documents, pdf documents, essays, etc.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    About Section Ends here */}
-
     </>
   );
 }

@@ -39,19 +39,21 @@ export default function Navbar(props) {
               {/* Navbar element for Home*/}
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/linkExtractor">
+                {props.linkText}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/emailExtractor">
+                {props.emailText}
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/about">
                 {props.aboutText}
               </Link>
-              {/* <a className="nav-link" href="#about">
-                {props.aboutText}
-              </a> */}
-              {/* //Navbar element for About */}
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-light" type="submit">Search</button>
-      </form> */}
           <div
             className={`form-check form-switch text-${props.mode === "dark" ? "light" : "dark"
               }`}
