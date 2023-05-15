@@ -32,8 +32,8 @@ export default function TextForm(props) {
     } else {
       props.showAlert("No words found in the text", "warning");
     }
-  };  
-    //To extract the number from the text.
+  };
+  //To extract the number from the text.
   const handleNumExtract = () => {
     const digits = text.match(/[0-9]/g);
     if (digits != null) {
@@ -55,7 +55,7 @@ export default function TextForm(props) {
     setText(updatedText.trim());
     props.showAlert("Capitalized the first letter of each word", "success");
   };
-  
+
   // To Reverse Text
   function handleRevClick() {
     if (text.length > 0) {
@@ -69,14 +69,14 @@ export default function TextForm(props) {
     } else {
       props.showAlert("No text to reverse", "warning");
     }
-  }  
+  }
   // Remove Extra spaces
   const handleExtraSpaces = () => {
     let newText = text.trim().split(/ +/);
     setText(newText.join(" "));
     props.showAlert("Extra spaces removed!", "success");
   };
-  
+
   //To copy to clipboard.
   const handleCopy = () => {
     if (text.length !== 0) {
@@ -92,7 +92,7 @@ export default function TextForm(props) {
       props.showAlert("No text to copy", "warning");
     }
   };
-  
+
   //To cut the text for Twitter.
   const handleCut = () => {
     if (text.length > 180) {
@@ -103,7 +103,7 @@ export default function TextForm(props) {
       props.showAlert("Text is less than 180 characters!", "warning");
     }
   }
-  
+
   //To Download the text.
   function handleDownload() {
     if (text.length !== 0) {
@@ -121,11 +121,11 @@ export default function TextForm(props) {
     msg.text = text;
     window.speechSynthesis.speak(msg);
   };
-  
+
   const handleStopClick = () => {
     window.speechSynthesis.cancel();
   };
-  
+
   // To Beautify JSON
   const beautifyJSON = () => {
     try {
@@ -137,7 +137,7 @@ export default function TextForm(props) {
       props.showAlert("Invalid JSON", "error");
     }
   };
-  
+
   const [text, setText] = useState("");
   return (
     <>
@@ -266,16 +266,21 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {/* {text.length > 0 ? text.trim().split(/\s+/).length : 0} words,{" "} */}
-          {text.length} characters
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{' '}
+          words and {text.replace(/\s+/g, '').length} characters
         </p>
         <p>
-          {0.08 *
-            text.split(" ").filter((element) => {
+          {0.008 *
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
-            }).length}{" "}
+            }).length}{' '}
           Minutes read
         </p>
+
         {/* //To display the text preview.*/}
         <h2 className="my-3">Text Preview</h2>
         <p className="prev">{text.length > 0 ? text : "Nothing to preview"}</p>
